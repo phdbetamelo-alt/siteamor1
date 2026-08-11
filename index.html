@@ -7,12 +7,12 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Montserrat:wght@300;400;600&display=swap');
 
-        /* RESET E VARIÁVEIS */
+       
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Montserrat', sans-serif; overflow-x: hidden; color: #fff; background-color: #050510; }
         h1, h2, h3, .cursive { font-family: 'Dancing Script', cursive; }
 
-        /* TELA 1: INTRODUÇÃO (GALÁXIA) */
+        
         #intro-screen {
             position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
             background: radial-gradient(circle at center, #0B1D42 0%, #050510 100%);
@@ -21,7 +21,7 @@
             overflow: hidden;
         }
         
-        /* ANIMAÇÃO DE GIRO DA GALÁXIA */
+        
         @keyframes spinGalaxy { 100% { transform: rotate(360deg); } }
         
         .galaxy-bg {
@@ -40,7 +40,7 @@
         }
         .enter-btn:hover { background: #fff; color: #000; box-shadow: 0 0 30px #fff; transform: scale(1.05); }
 
-        /* TELA 2: CONTEÚDO PRINCIPAL (GALÁXIA GIRANDO NO FUNDO) */
+       
         #main-content {
             display: none; width: 100%; min-height: 100vh; position: relative;
         }
@@ -54,12 +54,11 @@
         .overlay { background: rgba(0, 0, 0, 0.5); width: 100vw; height: 100vh; position: fixed; top: 0; left: 0; z-index: 1; }
         .container { position: relative; z-index: 2; max-width: 900px; margin: 0 auto; padding: 50px 20px; text-align: center; }
 
-        /* AUDIO PLAYER */
+     
         .music-player { background: rgba(255,255,255,0.1); padding: 15px; border-radius: 15px; margin-bottom: 40px; backdrop-filter: blur(10px); }
         audio { width: 100%; border-radius: 10px; outline: none; }
         .now-playing { font-size: 0.85rem; color: #f5b041; margin-top: 10px; font-style: italic; }
 
-        /* TEXTOS POÉTICOS */
         .poetic-text {
             font-size: 1.1rem; line-height: 1.8; margin: 30px 0; padding: 30px;
             background: rgba(0, 0, 0, 0.6); border-radius: 20px; backdrop-filter: blur(8px);
@@ -68,7 +67,6 @@
         .highlight { color: #f5b041; font-weight: 600; font-size: 1.3rem; }
         .title-cursive { font-size: 3rem; color: #f5b041; margin-bottom: 20px; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); }
 
-        /* VARAL DE POLAROIDS */
         .clothesline {
             display: flex; justify-content: center; gap: 20px; margin: 50px 0;
             border-top: 2px dashed rgba(255,255,255,0.4); padding-top: 20px; flex-wrap: wrap;
@@ -82,14 +80,14 @@
         .polaroid img { width: 100%; height: 180px; object-fit: cover; background: #ddd; }
         .polaroid p { color: #000; font-family: 'Dancing Script', cursive; font-size: 1.5rem; margin-top: 10px; }
 
-        /* FOTO MAIS BONITA */
+      
         .best-photo { margin: 60px 0; }
         .best-photo img {
             width: 100%; max-width: 400px; border-radius: 15px;
             box-shadow: 0 0 30px rgba(245, 176, 65, 0.4); border: 3px solid rgba(255,255,255,0.2);
         }
 
-        /* CRONÔMETROS */
+  
         .timer-box {
             background: linear-gradient(135deg, rgba(245, 176, 65, 0.15), rgba(0,0,0,0.7));
             border: 1px solid rgba(245, 176, 65, 0.5); padding: 30px; border-radius: 20px; margin: 40px 0;
@@ -114,12 +112,11 @@
         @keyframes meetSwansLeft { 0% { transform: scaleX(-1) translateX(80px); } 100% { transform: scaleX(-1) translateX(20px); } }
         @keyframes heartBeat { 0%, 80% { opacity: 0; transform: scale(0.5) translateY(0); } 100% { opacity: 1; transform: scale(1.2) translateY(-30px); } }
 
-        /* LISTA DA IA */
+     
         .ai-list { text-align: left; margin-top: 20px; list-style: none; }
         .ai-list li { margin-bottom: 15px; padding-left: 25px; position: relative; line-height: 1.6; }
         .ai-list li::before { content: '✨'; position: absolute; left: 0; top: 0; }
 
-        /* RELÓGIO EMBAÇADO */
         .blurred-clock {
             filter: blur(6px); font-size: 3rem; font-family: monospace; letter-spacing: 5px;
             margin: 30px 0; opacity: 0.7; transition: filter 0.5s;
@@ -130,7 +127,7 @@
 </head>
 <body>
 
-    <!-- TELA 1: INTRODUÇÃO -->
+ 
     <div id="intro-screen">
         <div class="galaxy-bg"></div>
         <div class="intro-content">
@@ -139,14 +136,14 @@
         </div>
     </div>
 
-    <!-- TELA 2: CONTEÚDO PRINCIPAL COM GALÁXIA AO FUNDO -->
+    
     <div id="main-content">
         <div class="main-galaxy-bg"></div>
         <div class="overlay"></div>
         
         <div class="container">
 
-            <!-- PLAYER DE MÚSICA COM PLAYLIST -->
+          
             <div class="music-player">
                 <p style="margin-bottom: 10px; font-size: 0.9rem;">Dê o play e deixe a magia rolar...</p>
                 <audio id="audio-player" controls>
@@ -155,7 +152,7 @@
                 <p class="now-playing" id="now-playing-text">Carregando playlist...</p>
             </div>
 
-            <!-- VARAL DE POLAROIDS -->
+          
             <div class="clothesline">
                 <div class="polaroid">
                     <img src="foto1.jpg" alt="Foto Nossa">
@@ -171,7 +168,7 @@
                 </div>
             </div>
 
-            <!-- NOSSA HISTÓRIA -->
+          
             <div class="poetic-text">
                 <h2 class="title-cursive">Como o Universo nos Conectou</h2>
                 <p>Em uma noite normal, pouco antes do meu aniversário, você entrou na minha live. Você ficou. E começamos a conversar dia após dia. No início, ambos tínhamos nossos medos, as armaduras de antigas inseguranças nos faziam hesitar em dizer qualquer coisa. Mas a minha alma escolheu ficar quando percebeu a paz absoluta que você trazia nas nossas simples conversas.</p>
@@ -181,7 +178,7 @@
                 <p class="cursive" style="font-size: 1.8rem; color: #f5b041;">De repente, me toquei: Ela é a MULHER DA MINHA VIDA! MINHA ALMA GÊMEA, MINHA GALÁXIA!</p>
             </div>
 
-            <!-- A FOTO MAIS BONITA -->
+           
             <div class="best-photo">
                 <img src="fotogoat.jpg" alt="A foto mais bonita da Esther">
             </div>
@@ -189,7 +186,7 @@
                 <p>Eu não me apaixonei só pela sua beleza estonteante, embora ela me deixe sem ar. Foram pelas coisas mínimas que só o amor de verdade enxerga. Me apaixonei pelo seu sorriso, pelo seu olhar profundo, pela nossa conversa, pela paz que você me traz, pela sua risada, pela sua personalidade incrível e, o principal de tudo: <span class="highlight">A SUA ESSÊNCIA!</span></p>
             </div>
 
-            <!-- OFICIALIZAÇÃO E CRONÔMETRO DE NAMORO -->
+        
             <div class="poetic-text">
                 <p>Foi graças a essa sua essência, à confiança mútua, à segurança e à empatia com que cuidamos dos medos, traumas e inseguranças um do outro, que o inevitável aconteceu.</p>
                 <br>
@@ -200,7 +197,7 @@
                 <h3 class="cursive" style="font-size: 2.2rem;">O Tempo do Nosso Amor</h3>
                 <p style="margin-top: 10px;">Desde 27/07/2026 às 01:45 da manhã</p>
                 <div class="timer-display" id="dating-timer">
-                    <!-- O JS VAI PREENCHER AQUI -->
+                  
                 </div>
                 <br>
                 <p style="font-size: 1rem; line-height: 1.6;">Essa não é qualquer data. Ela representa a mais pura conexão de duas almas que nunca foram amadas da maneira correta, e que, por destino de Deus, se uniram. Hoje reconhecemos: nós mudamos nossas vidas. Cada passo, cada dia, cada minuto e detalhe lembra nós dois. Somos como dois astros que sempre estiveram conectados, apenas aguardando o tempo certo da atração de Deus para se juntarem!</p>
@@ -211,7 +208,7 @@
                 </div>
             </div>
 
-            <!-- TRANSFORMAÇÃO DE VIDA -->
+            
             <div class="poetic-text">
                 <p>Minha vida com você mudou da água pro vinho. Hoje você é a minha inspiração, minha força, a luz para os meus caminhos escuros, meu porto seguro, meu lar, minha calmaria, minha segurança, minha confiança e, para sempre, <span class="highlight">minha eterna mulher</span>.</p>
                 <br>
@@ -220,16 +217,15 @@
                 <p>Apesar dos meus medos, inseguranças e traumas, eu sempre tentarei ser o homem mais forte e corajoso que eu puder. Porque hoje a minha luta não se trata mais só de mim. Se trata de ser forte para alguém que, no fim do dia, me chama com orgulho de: <span class="highlight">MEU HOMEM!</span></p>
             </div>
 
-            <!-- CRONOMETRO DE QUANDO SE CONHECERAM -->
             <div class="timer-box" style="background: linear-gradient(135deg, rgba(77, 144, 254, 0.15), rgba(0,0,0,0.7)); border-color: rgba(77, 144, 254, 0.5);">
                 <h3 class="cursive" style="font-size: 2.2rem; color: #4d90fe;">O Início de Tudo</h3>
                 <p style="margin-top: 10px;">Desde o dia em que nos conhecemos (23/06/2026 às 00:00)</p>
                 <div class="timer-display" id="meeting-timer">
-                    <!-- O JS VAI PREENCHER AQUI -->
+                
                 </div>
             </div>
 
-            <!-- SINAIS DO UNIVERSO -->
+    
             <div class="poetic-text">
                 <h2 class="title-cursive">Sinais, Sintonia e 22:22</h2>
                 <p>Sabe de uma coisa? Deus e o Universo não param de nos enviar sinais de que somos o par perfeito um para o outro. É surreal a nossa sintonia na forma de pensar, a nossa conexão espiritual, o acolhimento gigante e os olhares sempre cruzando o relógio às 22:22.</p>
@@ -245,7 +241,7 @@
 
            
 
-            <!-- RELÓGIO DO ENCONTRO FÍSICO -->
+          
             <div class="timer-box" style="text-align: center;">
                 <h3 class="cursive" style="font-size: 2.2rem;">O Nosso Encontro</h3>
                 <p style="margin: 15px 0; font-size: 1rem; line-height: 1.6;">Eu ainda não sei exatamente qual será a data. Espero do fundo do meu coração que seja logo. Mas de uma coisa eu tenho certeza absoluta: o relógio já está correndo para o dia em que iremos nos encontrar pessoalmente pela primeira vez, e eu poderei te abraçar e dizer o quanto te amo olhando nos seus olhos.</p>
@@ -261,11 +257,7 @@
     </div>
 
     <script>
-        // ==========================================
-        // CONFIGURAÇÃO DA PLAYLIST DE MÚSICAS
-        // ==========================================
-        // Coloque aqui o nome das suas músicas entre aspas.
-        // Adicione uma vírgula no final de cada uma, menos na última.
+ 
         const playlist = [
             "sayyes.mp3",
             "nessashoras.mp3",
@@ -276,7 +268,7 @@
         const audioPlayer = document.getElementById('audio-player');
         const nowPlayingText = document.getElementById('now-playing-text');
 
-        // Função para carregar a música no player
+      
         function loadSong(index) {
             if (playlist.length === 0) {
                 nowPlayingText.innerText = "Nenhuma música na playlist.";
@@ -286,10 +278,10 @@
             nowPlayingText.innerText = "Tocando agora: " + playlist[index];
         }
 
-        // Quando a música acaba, passa para a próxima
+   
         audioPlayer.addEventListener('ended', () => {
             currentSongIndex++;
-            // Se chegou na última música, volta para a primeira
+           
             if (currentSongIndex >= playlist.length) {
                 currentSongIndex = 0; 
             }
@@ -297,13 +289,10 @@
             audioPlayer.play();
         });
 
-        // Carrega a primeira música ao abrir o site
+        
         loadSong(currentSongIndex);
 
 
-        // ==========================================
-        // TRANSIÇÃO DE TELA
-        // ==========================================
         function enterGalaxy() {
             const intro = document.getElementById('intro-screen');
             const main = document.getElementById('main-content');
@@ -315,26 +304,24 @@
                 intro.style.display = 'none';
                 main.style.display = 'block';
                 
-                // Tenta dar play na música após ela clicar no botão
+            
                 if(playlist.length > 0) {
                     audioPlayer.play().catch(e => console.log("Clique no play manualmente."));
                 }
             }, 1500);
         }
 
-        // ==========================================
-        // CRONÔMETROS DE TEMPO
-        // ==========================================
+
         function updateCounters() {
             const now = new Date().getTime();
 
-            // Datas:
+           
             const datingDate = new Date('2026-07-27T01:45:00').getTime();
             const meetingDate = new Date('2026-06-23T00:00:00').getTime();
 
             function calculateDiff(startDate, targetElementId, colorClass) {
                 const diff = now - startDate;
-                if (diff < 0) return; // Se estiver no futuro
+                if (diff < 0) return; 
 
                 const days = Math.floor(diff / (1000 * 60 * 60 * 24));
                 const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
@@ -350,8 +337,8 @@
                 document.getElementById(targetElementId).innerHTML = html;
             }
 
-            calculateDiff(datingDate, 'dating-timer', '#f5b041'); // Dourado
-            calculateDiff(meetingDate, 'meeting-timer', '#4d90fe'); // Azul
+            calculateDiff(datingDate, 'dating-timer', '#f5b041'); 
+            calculateDiff(meetingDate, 'meeting-timer', '#4d90fe'); 
         }
 
         setInterval(updateCounters, 1000);
