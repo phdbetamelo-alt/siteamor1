@@ -5,9 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Para Minha Galáxia, Esther</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Montserrat:wght@300;400;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Montserrat:wght@300;400;600&family=Patrick+Hand&display=swap');
 
-       
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Montserrat', sans-serif; overflow-x: hidden; color: #fff; background-color: #050510; }
         h1, h2, h3, .cursive { font-family: 'Dancing Script', cursive; }
@@ -20,7 +19,6 @@
             z-index: 100; transition: transform 2s ease-in-out, opacity 2s ease-in-out;
             overflow: hidden;
         }
-        
         
         @keyframes spinGalaxy { 100% { transform: rotate(360deg); } }
         
@@ -37,13 +35,11 @@
             background: rgba(255, 255, 255, 0.1); color: #fff; border: 2px solid #fff;
             border-radius: 30px; cursor: pointer; backdrop-filter: blur(5px);
             transition: all 0.3s ease; box-shadow: 0 0 15px rgba(255,255,255,0.2);
+            margin-top: 20px;
         }
         .enter-btn:hover { background: #fff; color: #000; box-shadow: 0 0 30px #fff; transform: scale(1.05); }
 
-       
-        #main-content {
-            display: none; width: 100%; min-height: 100vh; position: relative;
-        }
+        #main-content { display: none; width: 100%; min-height: 100vh; position: relative; }
         
         .main-galaxy-bg {
             position: fixed; top: -50%; left: -50%; width: 200vw; height: 200vh;
@@ -54,7 +50,6 @@
         .overlay { background: rgba(0, 0, 0, 0.5); width: 100vw; height: 100vh; position: fixed; top: 0; left: 0; z-index: 1; }
         .container { position: relative; z-index: 2; max-width: 900px; margin: 0 auto; padding: 50px 20px; text-align: center; }
 
-     
         .music-player { background: rgba(255,255,255,0.1); padding: 15px; border-radius: 15px; margin-bottom: 40px; backdrop-filter: blur(10px); }
         audio { width: 100%; border-radius: 10px; outline: none; }
         .now-playing { font-size: 0.85rem; color: #f5b041; margin-top: 10px; font-style: italic; }
@@ -67,67 +62,213 @@
         .highlight { color: #f5b041; font-weight: 600; font-size: 1.3rem; }
         .title-cursive { font-size: 3rem; color: #f5b041; margin-bottom: 20px; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); }
 
-        .clothesline {
-            display: flex; justify-content: center; gap: 20px; margin: 50px 0;
-            border-top: 2px dashed rgba(255,255,255,0.4); padding-top: 20px; flex-wrap: wrap;
-        }
-        .polaroid {
-            background: #fff; padding: 10px 10px 25px 10px; box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-            transform: rotate(-5deg); transition: transform 0.3s; width: 200px; border-radius: 2px;
-        }
+        .clothesline { display: flex; justify-content: center; gap: 20px; margin: 50px 0; border-top: 2px dashed rgba(255,255,255,0.4); padding-top: 20px; flex-wrap: wrap; }
+        .polaroid { background: #fff; padding: 10px 10px 25px 10px; box-shadow: 0 10px 25px rgba(0,0,0,0.5); transform: rotate(-5deg); transition: transform 0.3s; width: 200px; border-radius: 2px; }
         .polaroid:nth-child(even) { transform: rotate(5deg); }
         .polaroid:hover { transform: scale(1.1) rotate(0deg); z-index: 10; }
         .polaroid img { width: 100%; height: 180px; object-fit: cover; background: #ddd; }
         .polaroid p { color: #000; font-family: 'Dancing Script', cursive; font-size: 1.5rem; margin-top: 10px; }
 
-      
         .best-photo { margin: 60px 0; }
-        .best-photo img {
-            width: 100%; max-width: 400px; border-radius: 15px;
-            box-shadow: 0 0 30px rgba(245, 176, 65, 0.4); border: 3px solid rgba(255,255,255,0.2);
-        }
+        .best-photo img { width: 100%; max-width: 400px; border-radius: 15px; box-shadow: 0 0 30px rgba(245, 176, 65, 0.4); border: 3px solid rgba(255,255,255,0.2); }
 
-  
-        .timer-box {
-            background: linear-gradient(135deg, rgba(245, 176, 65, 0.15), rgba(0,0,0,0.7));
-            border: 1px solid rgba(245, 176, 65, 0.5); padding: 30px; border-radius: 20px; margin: 40px 0;
-            backdrop-filter: blur(5px);
-        }
+        .timer-box { background: linear-gradient(135deg, rgba(245, 176, 65, 0.15), rgba(0,0,0,0.7)); border: 1px solid rgba(245, 176, 65, 0.5); padding: 30px; border-radius: 20px; margin: 40px 0; backdrop-filter: blur(5px); }
         .timer-display { display: flex; justify-content: center; gap: 15px; margin-top: 20px; flex-wrap: wrap; }
         .time-unit { background: rgba(0,0,0,0.8); padding: 15px; border-radius: 10px; min-width: 90px; box-shadow: 0 5px 15px rgba(0,0,0,0.5); }
         .time-unit span { display: block; font-size: 2.5rem; font-weight: bold; color: #f5b041; }
         .time-unit p { font-size: 0.9rem; letter-spacing: 2px; text-transform: uppercase; margin-top: 5px;}
 
-       
         .animation-container { display: flex; justify-content: center; align-items: center; height: 150px; margin: 30px 0; position: relative; }
         .soul { width: 30px; height: 30px; background: #fff; border-radius: 50%; box-shadow: 0 0 20px 10px #4d90fe; position: absolute; animation: meetSouls 4s infinite alternate; }
         .soul.esther { background: #f5b041; box-shadow: 0 0 20px 10px #f5b041; animation: meetSoulsRight 4s infinite alternate; }
         @keyframes meetSouls { 0% { transform: translateX(-100px); } 100% { transform: translateX(-15px); } }
         @keyframes meetSoulsRight { 0% { transform: translateX(100px); } 100% { transform: translateX(15px); } }
 
-        .swan { font-size: 4rem; position: absolute; animation: meetSwans 4s infinite alternate; }
-        .swan.left { transform: scaleX(-1); animation: meetSwansLeft 4s infinite alternate; }
-        .heart-emoji { position: absolute; font-size: 3rem; opacity: 0; animation: heartBeat 4s infinite; }
-        @keyframes meetSwans { 0% { transform: translateX(80px); } 100% { transform: translateX(20px); } }
-        @keyframes meetSwansLeft { 0% { transform: scaleX(-1) translateX(80px); } 100% { transform: scaleX(-1) translateX(20px); } }
-        @keyframes heartBeat { 0%, 80% { opacity: 0; transform: scale(0.5) translateY(0); } 100% { opacity: 1; transform: scale(1.2) translateY(-30px); } }
+        .btn-gold { background: #f5b041; color: #000; border-color: #f5b041; font-weight: bold; font-size: 1.5rem; margin-top: 40px;}
+        .btn-gold:hover { background: #ffc259; box-shadow: 0 0 30px #f5b041; }
 
-     
-        .ai-list { text-align: left; margin-top: 20px; list-style: none; }
-        .ai-list li { margin-bottom: 15px; padding-left: 25px; position: relative; line-height: 1.6; }
-        .ai-list li::before { content: '✨'; position: absolute; left: 0; top: 0; }
-
-        .blurred-clock {
-            filter: blur(6px); font-size: 3rem; font-family: monospace; letter-spacing: 5px;
-            margin: 30px 0; opacity: 0.7; transition: filter 0.5s;
+        
+        #journey-screen {
+            display: none; width: 100%; min-height: 100vh; position: relative;
+            background: linear-gradient(180deg, #0d1b2a 0%, #1b263b 100%);
+            padding-bottom: 50px;
         }
-        .blurred-clock:hover { filter: blur(2px); }
 
+        .flower-bg-container { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; pointer-events: none; overflow: hidden; z-index: 0; opacity: 0.3;}
+        .flower { position: absolute; font-size: 2rem; animation: floatUp linear infinite; }
+        @keyframes floatUp {
+            0% { transform: translateY(100vh) rotate(0deg) scale(0.8); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-10vh) rotate(360deg) scale(1.2); opacity: 0; }
+        }
+
+        .journey-container { position: relative; z-index: 2; max-width: 800px; margin: 0 auto; padding: 50px 20px 0 20px; text-align: center; }
+        
+        #trail-content { display: none; margin-top: 50px; }
+
+        .milestone {
+            margin-bottom: 80px; position: relative; padding: 20px;
+            background: rgba(0, 0, 0, 0.5); border-radius: 15px; border: 1px solid rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            filter: blur(12px); 
+            opacity: 0.6;
+            transform: scale(0.95);
+            transition: all 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
+            cursor: pointer;
+        }
+        .milestone::before {
+            content: "Clique para revelar"; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+            font-size: 1.5rem; font-weight: bold; color: white; text-shadow: 0 0 10px black; z-index: 10;
+            opacity: 1; transition: opacity 0.3s;
+        }
+        .milestone.revealed { filter: blur(0); opacity: 1; transform: scale(1); cursor: default; }
+        .milestone.revealed::before { opacity: 0; pointer-events: none; }
+
+        .milestone-date { font-size: 1.8rem; color: #f5b041; margin-bottom: 15px; text-shadow: 2px 2px 5px black; }
+        .milestone-text { font-size: 1.1rem; line-height: 1.6; }
+        .milestone img { max-width: 100%; border-radius: 10px; margin-top: 15px; border: 2px solid rgba(255,255,255,0.2); }
+
+        .secret-msg { 
+            display: inline-block; padding: 10px 15px; background: rgba(255,255,255,0.1); 
+            border-radius: 10px; border: 1px dashed #f5b041; margin: 15px 0;
+            filter: blur(6px); cursor: pointer; transition: all 0.5s ease;
+            position: relative;
+        }
+        .secret-msg.revealed { filter: blur(0); border-style: solid; background: rgba(245, 176, 65, 0.2); transform: scale(1.05); }
+        .mini-heart { position: absolute; font-size: 1.5rem; pointer-events: none; animation: popHeart 1s ease-out forwards; }
+        @keyframes popHeart { 0% { transform: scale(0.5) translate(0, 0); opacity: 1; } 100% { transform: scale(1.5) translate(var(--tx), var(--ty)); opacity: 0; } }
+
+        
+        .heart-balloon {
+            width: 280px; height: 280px; margin: 20px auto; position: relative; animation: floatBalloon 4s ease-in-out infinite;
+            -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>');
+            -webkit-mask-size: cover; -webkit-mask-position: center; background: #222; box-shadow: 0 10px 30px rgba(0,0,0,0.8); cursor: pointer;
+        }
+        
+        .airplane-balloon {
+            width: 350px; height: 250px; margin: 30px auto 20px auto; position: relative; animation: floatBalloon 4s ease-in-out infinite;
+            -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M482.3 192c34.2 0 93.7 29 93.7 64c0 36-59.5 64-93.7 64l-116.6 0L265.2 495.9c-5.7 10-16.3 16.1-27.8 16.1l-56.2 0c-10.6 0-18.3-10.2-15.4-20.4l49-171.6L112 320 68.8 377.6c-3 4-7.8 6.4-12.8 6.4l-42 0c-7.8 0-14-6.3-14-14c0-1.3 .2-2.6 .5-3.9L32 256 .5 145.9c-.4-1.3-.5-2.6-.5-3.9c0-7.8 6.3-14 14-14l42 0c5 0 9.8 2.4 12.8 6.4L112 192l102.9 0-49-171.6C162.9 10.2 170.6 0 181.2 0l56.2 0c11.5 0 22.1 6.2 27.8 16.1L365.7 192l116.6 0z"/></svg>');
+            -webkit-mask-size: contain; -webkit-mask-repeat: no-repeat; -webkit-mask-position: center; background: #222; box-shadow: 0 10px 30px rgba(0,0,0,0.8); cursor: pointer;
+        }
+
+        .star-balloon {
+            width: 280px; height: 280px; margin: 30px auto 20px auto; position: relative; animation: floatBalloon 4s ease-in-out infinite;
+            -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/></svg>');
+            -webkit-mask-size: contain; -webkit-mask-repeat: no-repeat; -webkit-mask-position: center; background: #222; box-shadow: 0 10px 30px rgba(245, 176, 65, 0.4); cursor: pointer;
+        }
+
+        @keyframes floatBalloon { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
+        .heart-balloon video, .airplane-balloon video, .star-balloon video { width: 100%; height: 100%; object-fit: cover; outline: none; }
+        
+        .play-overlay {
+            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+            font-size: 4rem; color: rgba(255, 255, 255, 0.85); text-shadow: 0 0 15px rgba(0,0,0,0.8);
+            pointer-events: none; transition: opacity 0.3s ease, transform 0.3s ease; z-index: 10;
+        }
+        .heart-balloon.playing .play-overlay, .airplane-balloon.playing .play-overlay, .star-balloon.playing .play-overlay {
+            opacity: 0; transform: translate(-50%, -50%) scale(1.5);
+        }
+
+        
+        .post-its-container {
+            display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin: 30px 0;
+        }
+        .post-it {
+            width: 120px; height: 120px; display: flex; align-items: center; justify-content: center;
+            font-family: 'Patrick Hand', cursive; font-size: 1.5rem; color: #111;
+            box-shadow: 3px 5px 10px rgba(0,0,0,0.5); transform: rotate(-3deg); transition: transform 0.3s;
+            text-align: center; padding: 10px; cursor: default;
+        }
+        .post-it:nth-child(even) { transform: rotate(4deg); }
+        .post-it:hover { transform: scale(1.1) rotate(0deg); z-index: 10; box-shadow: 5px 8px 15px rgba(0,0,0,0.6); }
+        
+        .post-it.blue { background-color: #a2d2ff; }
+        .post-it.pink { background-color: #ffc8dd; }
+
+        
+        .mini-post-it {
+            width: 40px; height: 40px; box-shadow: 1px 2px 5px rgba(0,0,0,0.5);
+            font-size: 5px; color: rgba(0,0,0,0.5); display: flex; align-items: center; justify-content: center;
+            filter: blur(3px); opacity: 0.8; margin: 5px; cursor: not-allowed; overflow: hidden;
+        }
+
+        .sky-map-container { margin: 30px 0; position: relative; display: inline-block; }
+        .sky-map-img {
+            width: 100%; max-width: 450px; border-radius: 50%; border: 4px solid #f5b041;
+            box-shadow: 0 0 30px rgba(245, 176, 65, 0.4); object-fit: cover; aspect-ratio: 1/1;
+        }
+        .sky-map-caption { font-family: 'Dancing Script', cursive; font-size: 1.8rem; color: #f5b041; margin-top: 15px; text-shadow: 2px 2px 5px black; }
+
+        .brazil-map-box {
+            position: relative; width: 100%; max-width: 400px; height: 400px;
+            margin: 30px auto; background: rgba(0, 0, 0, 0.4); border: 1px solid rgba(245, 176, 65, 0.3);
+            border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        .brazil-map-img {
+            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 95%; height: 95%; object-fit: contain; z-index: 0; pointer-events: none;
+            filter: invert(1) brightness(1.5) opacity(0.35); 
+        }
+        .flight-svg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none; }
+        .city-dot { position: absolute; width: 12px; height: 12px; background: #f5b041; border-radius: 50%; box-shadow: 0 0 10px #f5b041; z-index: 2; }
+        .city-label { position: absolute; color: #fff; font-size: 0.85rem; font-family: 'Montserrat', sans-serif; font-weight: bold; text-shadow: 2px 2px 4px #000; z-index: 2; }
+        .airplane-icon {
+            position: absolute; font-size: 2rem; z-index: 3; top: 70%; left: 63%; transform: translate(-50%, -50%) rotate(-35deg);
+            animation: pulsePlane 1.5s infinite alternate; text-shadow: 0 0 10px rgba(77, 144, 254, 0.8);
+        }
+        @keyframes pulsePlane {
+            0% { transform: translate(-50%, -50%) rotate(-35deg) scale(1); filter: drop-shadow(0 0 5px rgba(245, 176, 65, 0.5)); }
+            100% { transform: translate(-50%, -50%) rotate(-35deg) scale(1.15); filter: drop-shadow(0 0 15px rgba(245, 176, 65, 1)); }
+        }
+
+        .carousel-wrapper { margin-top: 50px; }
+        .carousel { display: flex; gap: 15px; overflow-x: auto; padding: 20px 0; scroll-snap-type: x mandatory; scrollbar-width: none; }
+        .carousel::-webkit-scrollbar { display: none; }
+        .carousel-item { min-width: 250px; height: 350px; scroll-snap-align: center; border-radius: 15px; overflow: hidden; position: relative; box-shadow: 0 5px 15px rgba(0,0,0,0.5); border: 2px solid rgba(255,255,255,0.2); }
+        .carousel-item img, .carousel-item video { width: 100%; height: 100%; object-fit: cover; }
+
+        
+        .btn-start {
+            background: transparent; color: #4d90fe; border: 1px dashed #4d90fe; padding: 8px 20px; font-family: monospace; font-size: 1rem; cursor: pointer;
+            margin: 60px auto 20px auto; opacity: 0.4; transition: all 0.3s; display: block; border-radius: 5px;
+        }
+        .btn-start:hover { opacity: 1; background: rgba(77, 144, 254, 0.1); }
+
+        #game-overlay {
+            display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0,0,0,0.9); z-index: 9999; overflow: hidden;
+        }
+        .falling-heart { position: absolute; font-size: 2.5rem; cursor: pointer; user-select: none; animation: fallHeart linear forwards; z-index: 10000; }
+        @keyframes fallHeart { 0% { top: -50px; opacity: 1; } 100% { top: 110vh; opacity: 0.5; } }
+        
+        .game-end-box {
+            display: none; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; background: rgba(0,0,0,0.85); padding: 40px;
+            border-radius: 20px; border: 2px solid #f5b041; box-shadow: 0 0 40px rgba(245, 176, 65, 0.5); width: 90%; max-width: 500px; z-index: 10001;
+        }
+        .game-end-box h2 { color: #f5b041; font-size: 3.5rem; margin-bottom: 20px; text-shadow: 2px 2px 4px #000; }
+        .game-end-box p { font-size: 1.2rem; line-height: 1.6; }
+        .btn-close-game {
+            margin-top: 30px; background: #fff; color: #000; padding: 15px 30px; font-weight: bold; font-size: 1.1rem; border-radius: 30px; cursor: pointer;
+            border: none; transition: all 0.3s; box-shadow: 0 0 15px rgba(255,255,255,0.3);
+        }
+        .btn-close-game:hover { transform: scale(1.05); background: #f5b041; box-shadow: 0 0 25px #f5b041; }
+
+        @media (max-width: 600px) {
+            .title-cursive { font-size: 2.3rem; }
+            .poetic-text { padding: 20px; font-size: 1rem; }
+            .milestone { padding: 15px; margin-bottom: 50px; }
+            .heart-balloon { width: 220px; height: 220px; }
+            .airplane-balloon { width: 100%; max-width: 320px; height: 220px; }
+            .star-balloon { width: 220px; height: 220px; }
+            .brazil-map-box { height: 300px; }
+            .game-end-box { padding: 25px; }
+            .game-end-box h2 { font-size: 2.8rem; }
+            .post-it { width: 100px; height: 100px; font-size: 1.2rem; }
+        }
     </style>
 </head>
 <body>
 
- 
+    
     <div id="intro-screen">
         <div class="galaxy-bg"></div>
         <div class="intro-content">
@@ -142,33 +283,19 @@
         <div class="overlay"></div>
         
         <div class="container">
-
-          
             <div class="music-player">
                 <p style="margin-bottom: 10px; font-size: 0.9rem;">Dê o play e deixe a magia rolar...</p>
-                <audio id="audio-player" controls>
-                    Seu navegador não suporta o elemento de áudio.
-                </audio>
+                <audio id="audio-player" controls> Seu navegador não suporta o elemento de áudio. </audio>
                 <p class="now-playing" id="now-playing-text">Carregando playlist...</p>
             </div>
 
-          
             <div class="clothesline">
-                <div class="polaroid">
-                    <img src="foto1.jpg" alt="Foto Nossa">
-                    <p>MINHA</p>
-                </div>
-                <div class="polaroid">
-                    <img src="foto2.png" alt="Esther">
-                    <p>ETERNA</p>
-                </div>
-                <div class="polaroid">
-                    <img src="foto3.jpg" alt="Momentos">
-                    <p>MULHER</p>
-                </div>
+                <div class="polaroid"><img src="foto1.jpg" alt="Foto Nossa"><p>MINHA</p></div>
+                <div class="polaroid"><img src="foto2.png" alt="Esther"><p>ETERNA
+                </p></div>
+                <div class="polaroid"><img src="foto3.jpg" alt="Momentos"><p>MULHER</p></div>
             </div>
 
-          
             <div class="poetic-text">
                 <h2 class="title-cursive">Como o Universo nos Conectou</h2>
                 <p>Em uma noite normal, pouco antes do meu aniversário, você entrou na minha live. Você ficou. E começamos a conversar dia após dia. No início, ambos tínhamos nossos medos, as armaduras de antigas inseguranças nos faziam hesitar em dizer qualquer coisa. Mas a minha alma escolheu ficar quando percebeu a paz absoluta que você trazia nas nossas simples conversas.</p>
@@ -178,15 +305,12 @@
                 <p class="cursive" style="font-size: 1.8rem; color: #f5b041;">De repente, me toquei: Ela é a MULHER DA MINHA VIDA! MINHA ALMA GÊMEA, MINHA GALÁXIA!</p>
             </div>
 
-           
-            <div class="best-photo">
-                <img src="fotogoat.jpg" alt="A foto mais bonita da Esther">
-            </div>
+            <div class="best-photo"><img src="fotogoat.jpg" alt="A foto mais bonita da Esther"></div>
+            
             <div class="poetic-text">
                 <p>Eu não me apaixonei só pela sua beleza estonteante, embora ela me deixe sem ar. Foram pelas coisas mínimas que só o amor de verdade enxerga. Me apaixonei pelo seu sorriso, pelo seu olhar profundo, pela nossa conversa, pela paz que você me traz, pela sua risada, pela sua personalidade incrível e, o principal de tudo: <span class="highlight">A SUA ESSÊNCIA!</span></p>
             </div>
 
-        
             <div class="poetic-text">
                 <p>Foi graças a essa sua essência, à confiança mútua, à segurança e à empatia com que cuidamos dos medos, traumas e inseguranças um do outro, que o inevitável aconteceu.</p>
                 <br>
@@ -195,10 +319,8 @@
 
             <div class="timer-box">
                 <h3 class="cursive" style="font-size: 2.2rem;">O Tempo do Nosso Amor</h3>
-                <p style="margin-top: 10px;">Desde 27/07/2026 às 00:55 da manhã</p>
-                <div class="timer-display" id="dating-timer">
-                  
-                </div>
+                <p style="margin-top: 10px;">Desde 27/07/2026 às 01:45 da manhã</p>
+                <div class="timer-display" id="dating-timer"></div>
                 <br>
                 <p style="font-size: 1rem; line-height: 1.6;">Essa não é qualquer data. Ela representa a mais pura conexão de duas almas que nunca foram amadas da maneira correta, e que, por destino de Deus, se uniram. Hoje reconhecemos: nós mudamos nossas vidas. Cada passo, cada dia, cada minuto e detalhe lembra nós dois. Somos como dois astros que sempre estiveram conectados, apenas aguardando o tempo certo da atração de Deus para se juntarem!</p>
                 
@@ -208,141 +330,441 @@
                 </div>
             </div>
 
-            
-            <div class="poetic-text">
-                <p>Minha vida com você mudou da água pro vinho. Hoje você é a minha inspiração, minha força, a luz para os meus caminhos escuros, meu porto seguro, meu lar, minha calmaria, minha segurança, minha confiança e, para sempre, <span class="highlight">minha eterna mulher</span>.</p>
-                <br>
-                <p>Eu nunca imaginei que Deus fosse me fazer esperar todo esse tempo e me ensinar tanta coisa, apenas para me dar o melhor presente da minha existência no dia do aniversário mais carente da minha vida.</p>
-                <br>
-                <p>Apesar dos meus medos, inseguranças e traumas, eu sempre tentarei ser o homem mais forte e corajoso que eu puder. Porque hoje a minha luta não se trata mais só de mim. Se trata de ser forte para alguém que, no fim do dia, me chama com orgulho de: <span class="highlight">MEU HOMEM!</span></p>
-            </div>
-
-            <div class="timer-box" style="background: linear-gradient(135deg, rgba(77, 144, 254, 0.15), rgba(0,0,0,0.7)); border-color: rgba(77, 144, 254, 0.5);">
-                <h3 class="cursive" style="font-size: 2.2rem; color: #4d90fe;">O Início de Tudo</h3>
-                <p style="margin-top: 10px;">Desde o dia em que nos conhecemos (23/06/2026 às 00:00)</p>
-                <div class="timer-display" id="meeting-timer">
-                
-                </div>
-            </div>
-
-    
-            <div class="poetic-text">
-                <h2 class="title-cursive">Sinais, Sintonia e 22:22</h2>
-                <p>Sabe de uma coisa? Deus e o Universo não param de nos enviar sinais de que somos o par perfeito um para o outro. É surreal a nossa sintonia na forma de pensar, a nossa conexão espiritual, o acolhimento gigante e os olhares sempre cruzando o relógio às 22:22.</p>
-                <br>
-                <p>Se você olhar para a história dos cisnes, eles passam a vida inteira procurando um único amor. Quando se encontram, é para a vida toda. Hoje não há dúvidas no meu coração: nós somos esse casal de cisnes que finalmente se encontrou nas águas calmas da vida.</p>
-                
-                <div class="animation-container" style="height: 100px;">
-                    <div class="swan left">🦢</div>
-                    <div class="swan right">🦢</div>
-                    <div class="heart-emoji">❤️</div>
-                </div>
-            </div>
-
-           
-
-          
-            <div class="timer-box" style="text-align: center;">
-                <h3 class="cursive" style="font-size: 2.2rem;">O Nosso Encontro</h3>
-                <p style="margin: 15px 0; font-size: 1rem; line-height: 1.6;">Eu ainda não sei exatamente qual será a data. Espero do fundo do meu coração que seja logo. Mas de uma coisa eu tenho certeza absoluta: o relógio já está correndo para o dia em que iremos nos encontrar pessoalmente pela primeira vez, e eu poderei te abraçar e dizer o quanto te amo olhando nos seus olhos.</p>
-                <div class="blurred-clock">
-                    00:00:00:00
-                </div>
-                <p style="font-size: 0.8rem; opacity: 0.6;">(O tempo está embaçado agora, mas o destino já o marcou)</p>
-            </div>
-
-            <p class="cursive" style="text-align: center; font-size: 2.5rem; margin: 60px 0 20px; color: #f5b041; text-shadow: 2px 2px 10px rgba(0,0,0,0.8);">Com todo o amor do universo,<br>Do seu Homem, Pedro.</p>
+            <button class="enter-btn btn-gold" onclick="goToJourney()">1 MÊS DE NAMORO ❤️</button>
+            <p style="margin-top: 10px; font-size: 0.9rem; opacity: 0.8;">(Clique para ver a nossa história)</p>
 
         </div>
     </div>
 
-    <script>
- 
-        const playlist = [
-            "sayyes.mp3",
-            "nessashoras.mp3",
-            "hostage.mp3"
-        ];
+    
+    <div id="journey-screen">
+        <div class="flower-bg-container" id="flowers-bg"></div>
         
+        <div class="journey-container">
+            <h1 class="title-cursive" style="font-size: 3.5rem; margin-bottom: 20px;">A Nossa Trilha</h1>
+            <p style="font-size: 1.1rem; margin-bottom: 40px; text-shadow: 1px 1px 3px black;">Cada passo nos trouxe até aqui. Clique para desembaçar as nossas memórias.</p>
+            
+            <button id="start-btn" class="enter-btn btn-gold" onclick="startTrail()">INICIAR TRAJETO</button>
+
+            <div id="trail-content">
+                
+                
+                <div class="milestone" onclick="revealMilestone(this)">
+                    <h2 class="milestone-date cursive">O INÍCIO: O Acaso Perfeito</h2>
+                    <div class="milestone-text">
+                        <p>A nossa história não começou com um esbarrão na rua ou um encontro planejado, mas sim de um jeito que só o destino poderia orquestrar: através de uma tela, em uma live no TikTok. O chat era um verdadeiro turbilhão, dezenas de mensagens correndo freneticamente, pessoas querendo atenção e tudo acontecendo muito rápido. Mas o universo pareceu congelar por um segundo quando a notificação mais importante da minha vida brilhou na tela:</p>
+                        
+                        <div class="secret-msg" onclick="revealSecret(event, this)">
+                            <span style="font-weight: bold; font-size: 1.1rem;">` 𝙩𝙝𝙚𝙧 🪼 SEGUIU O CRIADOR DA LIVE.</span>
+                        </div>
+                        
+                        <p>E foi exatamente naquele momento que o meu mundo começou a mudar. Uma faísca foi acesa com um simples e despretensioso: <strong>"VEM JOGAR COMIGO"</strong>. Mal sabia eu que ali começava o melhor jogo da minha vida.</p>
+                    </div>
+                </div>
+
+                
+                <div class="milestone" onclick="revealMilestone(this)">
+                    <h2 class="milestone-date cursive">05/07: A Mensagem Que Mudou Tudo</h2>
+                    <div class="milestone-text">
+                        <p>Em uma tarde tranquila, num dia que parecia igual a todos os outros, meu celular vibrou exatamente às 16:10. Era uma notificação simples, mas que carregava o peso de mudar completamente a rota dos meus dias:</p>
+                        <p style="font-style: italic; margin: 15px 0; color: #f5b041; font-size: 1.2rem;">"Cadê vc nas lives sumida?"</p>
+                        <p>Dali em diante, o silêncio nunca mais fez morada em mim. Nossas conversas começaram a ganhar forma, cor, melodia e, de repente, tudo na minha rotina passou a fazer mais sentido porque você estava nela.</p>
+                        <img src="print0507.jpeg" alt="Print da mensagem" onerror="this.style.display='none'"> 
+                    </div>
+                </div>
+
+                
+                <div class="milestone" onclick="revealMilestone(this)">
+                    <h2 class="milestone-date cursive">10/07: A Primeira Madrugada</h2>
+                    <div class="milestone-text">
+                        <p>O relógio marcava 00:39. A madrugada estava silenciosa lá fora, mas dentro de mim o coração batia alto. Foi a noite em que nossas armaduras caíram. A noite do primeiro <em>"oi linda"</em> e do tímido e doce <em>"oi meu bem"</em>. O encanto era tanto que eu já não conseguia (nem queria) disfarçar, e então deixei escapar a primeira cantada de verdade, vinda direto da alma:</p>
+                        <p style="font-weight: 600; color: #f5b041; margin: 15px 0; font-size: 1.1rem;">"Seus olhos me fazem duvidar se o universo realmente fica lá em cima."</p>
+                        <p>Naquela mesma madrugada, levamos nosso mundo para o WhatsApp. O que começou como flertes bobos e brincadeiras leves se transformou em algo gigante. Do dia 10 ao dia 18, o carinho transbordou, a intimidade cresceu e nós dois percebemos o inevitável: o que sentíamos era raro, absurdamente recíproco e profundamente verdadeiro.</p>
+                    </div>
+                </div>
+
+               
+                <div class="milestone" onclick="revealMilestone(this)">
+                    <h2 class="milestone-date cursive">19/07: A Primeira Música</h2>
+                    <div class="milestone-text">
+                        <p>Um domingo de manhã com aquela aura de calmaria e paz que só os dias bons têm. Tivemos uma conversa linda. Trocamos áudios repletos de carinho, desarmamos nossos medos e abrimos nossos corações, mostrando um ao outro as nossas versões mais sinceras. Foi imerso nesse clima de paz absoluta que, num ato puro e instintivo de amor, eu dediquei a minha primeira música a você. A trilha sonora de nós dois começava a tocar.</p>
+                        
+                        <div class="heart-balloon" onclick="toggleVideo(this)">
+                            <video src="primeiramusica.mp4" poster="capa_video1.jpg" playsinline></video>
+                            <div class="play-overlay">▶️</div>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div class="milestone" onclick="revealMilestone(this)">
+                    <h2 class="milestone-date cursive">22/07: A Sua Canção Para Mim</h2>
+                    <div class="milestone-text">
+                        <p>Apenas cinco dias antes do nosso grande momento, sem termos a menor dimensão da proporção do que o futuro nos reservava, você decidiu me mostrar o tamanho do seu sentimento: me dedicou a sua música favorita.</p>
+                        <p>Você talvez não tivesse ideia da força daquilo, mas aquela canção reacendeu algo adormecido e muito bonito dentro de mim. Trouxe de volta a coragem e a firmeza de me entregar, de amar alguém de corpo e alma, passando por cima de todas as minhas inseguranças e dificuldades. Você me deu forças.</p>
+                        
+                        <div class="heart-balloon" onclick="toggleVideo(this)">
+                            <video src="musicadela1.mp4" poster="capa_video2.jpg" playsinline></video>
+                            <div class="play-overlay">▶️</div>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div class="milestone" onclick="revealMilestone(this)">
+                    <h2 class="milestone-date cursive">27/07: O Sim Mais Lindo da Minha Vida</h2>
+                    <div class="milestone-text">
+                        <p>Uma segunda-feira que nasceu com cara de rotina, mas que estava predestinada a nos entregar tudo. A manhã foi embalada por mensagens leves. À tarde, sentimos aquele conforto enorme da segurança de ver o outro ali, encerrando o dia juntos.</p>
+                        <p>À noite... ah, a noite. Você estava relutante, não queria entrar em ligação. Mas o universo tem seus próprios caprichos, conspirou a nosso favor e você aceitou. E que bom que você aceitou! Conversamos sobre tudo, flertamos, rimos juntos, choramos, dividimos vulnerabilidades. Trocamos sentimentos tão fortes que o pedido já não cabia mais apertado no meu peito. E então, exatamente às 00:55, a pergunta que cruzou nossas almas de vez:</p>
+                        <p style="font-size: 1.5rem; font-weight: bold; color: #f5b041; margin: 15px 0;">"Esther, aceita namorar comigo?"</p>
+                        <p>O seu "sim" selou nosso destino. Com as alianças brilhando na bio e mensagens que transbordavam paixão, finalizamos a noite com chave de ouro: você publicando a frase mais linda que eu já li. Uma declaração que ficará tatuada para a eternidade na nossa história.</p>
+                        
+                        <img src="{73BA1281-8DA3-4FD0-A7CA-CFD150DB9EB0}.png" alt="A frase mais bonita" style="width: 100%; border-radius: 10px; margin-top: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.5);">
+                        
+                        
+                        <div class="sky-map-container">
+                            <img src="ceunoite.jpg" alt="O céu da nossa noite" class="sky-map-img">
+                            <p class="sky-map-caption">Foi exatamente assim que o universo nos olhou quando você disse sim.</p>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div class="milestone" onclick="revealMilestone(this)">
+                    <h2 class="milestone-date cursive">O Nosso Encontro</h2>
+                    <div class="milestone-text">
+                        <div class="brazil-map-box">
+                            <img class="brazil-map-img" src="https://upload.wikimedia.org/wikipedia/commons/1/1a/Blank_map_of_Brazil.svg" alt="Mapa do Brasil">
+                            <svg class="flight-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+                                <path d="M 63,70 Q 70,55 60,45" stroke="rgba(245, 176, 65, 0.7)" stroke-width="0.8" stroke-dasharray="2 2" fill="none"/>
+                            </svg>
+                            <div class="city-dot" style="top: 45%; left: 60%; transform: translate(-50%, -50%);"></div>
+                            <div class="city-label" style="top: 38%; left: 60%; transform: translateX(-50%);">Brasília</div>
+                            <div class="city-dot" style="top: 70%; left: 63%; transform: translate(-50%, -50%);"></div>
+                            <div class="city-label" style="top: 74%; left: 63%; transform: translateX(-50%);">São Paulo</div>
+                            <div class="airplane-icon">✈️</div>
+                        </div>
+
+                        <p>Eu ainda não sei a data exata em que isso vai acontecer, mas de uma coisa eu tenho certeza: ainda em 2026, esse avião, que hoje aguarda ansiosamente, irá decolar.</p>
+                        <p>Ele vai percorrer esse trajeto e, finalmente, me levar até você. Quero que, até que esse dia chegue, continuemos construindo a nossa história juntos, cada detalhe, cada momento.</p>
+                        <p>Porque a distância não significa absolutamente nada quando você, Esther, significa o meu tudo. Você para sempre será minha mulher.</p>
+                        
+                        <div style="margin-top: 30px; padding-top: 20px; border-top: 1px dashed rgba(245,176,65,0.4);">
+                            <p>Viver cercado pelo mundo da aviação todos os dias só aumenta a minha certeza de que o trajeto mais importante da minha vida será aquele que vai me levar até você.</p>
+                            <p>E, por falar nisso, toda essa distância me faz lembrar de uma música que parece ter sido escrita para nós. Uma melodia que traduz perfeitamente a saudade e a promessa de que logo nossos mundos vão se cruzar.</p>
+                            
+                            <div class="airplane-balloon" onclick="toggleVideo(this)">
+                                <video src="musicadistancia.mp4" poster="capa_video_aviao.jpg" playsinline></video>
+                                <div class="play-overlay">▶️</div>
+                            </div>
+                        </div>
+
+                        <p style="font-weight: 600; color: #f5b041; font-size: 1.15rem; margin-top: 25px;">Eu fico ansioso, contando os dias e segundos para ver esse momento chegar, e quando ele chegar, eu sei que será o dia mais feliz de toda a minha vida.</p>
+                    </div>
+                </div>
+
+                
+                <div class="milestone" onclick="revealMilestone(this)">
+                    <h2 class="milestone-date cursive">As Pequenas Coisas</h2>
+                    <div class="milestone-text">
+                        <p style="font-size: 1.2rem; margin-bottom: 20px;">Um dia você me pediu para fazer alguns post-its escrevendo coisas que me lembram você. Eu guardei esse pedido com muito carinho e não esqueci.</p>
+                        
+                        <div class="post-its-container">
+                            <div class="post-it blue">Água viva</div>
+                            <div class="post-it pink">Estrela</div>
+                            <div class="post-it blue">Lua</div>
+                            <div class="post-it pink">Demon Slayer</div>
+                            <div class="post-it blue">Naruto</div>
+                            <div class="post-it pink">Dbd</div>
+                            <div class="post-it blue">Gatos</div>
+                            <div class="post-it pink">Margaridas</div>
+                            <div class="post-it blue">Oceano</div>
+                            <div class="post-it pink">Artes</div>
+                        </div>
+
+                        <p style="margin-top: 40px; font-size: 1.1rem;">Você deve estar se perguntando sobre os outros... Bom, eu fiz mais 40 pequenos post-its com outros detalhes minuciosos que eu amo em você.</p>
+                        <p style="font-weight: 600; color: #f5b041; font-size: 1.2rem; margin-top: 10px;">Eles estão embaçados de propósito, porque esse é um segredo que eu só vou revelar para você no dia do nosso encontro!</p>
+                        
+                        
+                        <div class="post-its-container" id="blurred-post-its" style="gap: 8px; margin-top: 20px;"></div>
+                    </div>
+                </div>
+
+               
+                <div class="milestone" onclick="revealMilestone(this)">
+                    <h2 class="title-cursive" style="font-size: 3rem;">Nossa Galáxia</h2>
+                    <div class="milestone-text">
+                        <p>O "sim" não foi o nosso final feliz, foi apenas a primeira página. E a nossa história continua sendo escrita, todos os dias, da forma mais intensa possível.</p>
+                        <p>Já colecionamos inúmeras lembranças inesquecíveis. Dividimos muito amor, um cuidado extremo e um carinho que nos prova que somos o porto seguro um do outro. Teremos sempre nossos altos e baixos, como tudo na vida, mas independentemente do tamanho da dificuldade, das barreiras ou da distância que tente nos testar...</p>
+                        
+                        <p style="font-size: 1.3rem; margin-top: 15px;"><strong>Eu, Pedro, prometo que sempre irei lutar por você. Porque de todas as estrelas e constelações que existem, você é e sempre será a MINHA GALÁXIA! 🌌</strong></p>
+
+                        
+                        <div style="margin: 40px 0; padding: 25px; background: rgba(255,255,255,0.05); border-radius: 15px; border: 1px solid rgba(245, 176, 65, 0.2);">
+                            <p style="font-size: 1.15rem; line-height: 1.6;">Além de ser a minha galáxia inteira, você possui um brilho muito maior que qualquer estrela que já cruzou o céu. E essa música, a mais emocionante que você já me dedicou, reflete exatamente isso: o quanto você é a luz que ilumina a minha vida.</p>
+                            
+                            
+                            <div class="star-balloon" onclick="toggleVideo(this)">
+                                <video src="musicaestrela.mp4" poster="capa_video_estrela.jpg" playsinline></video>
+                                <div class="play-overlay">▶️</div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="carousel-wrapper">
+                        <p style="font-size: 0.9rem; opacity: 0.7; margin-bottom: 10px;">(Arraste para o lado para ver nossos momentos)</p>
+                        <div class="carousel">
+                            <div class="carousel-item"><img src="mine].jpeg" alt="NOSSO MINE"></div>
+                            <div class="carousel-item"><img src="leon e ada.jpeg" alt="CASAL DBD"></div>
+                            <div class="carousel-item"><img src="nossa couple.jpeg" alt="METADINHA"></div>
+                            <div class="carousel-item"><img src="com sono.jpeg" alt="SONINHO"></div>
+                            <div class="carousel-item"><img src="trabalho.jpeg" alt="INDO TRABALHAR"></div>
+                            <div class="carousel-item"><img src="unhas feitas.jpeg" alt="UNHAS FEITAS"></div>
+                            <div class="carousel-item"><img src="aliança.jpeg" alt="ALIANÇA"></div>
+                            <div class="carousel-item">
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div> 
+
+            
+            <button class="btn-start" onclick="startEasterEggGame()">[ PRESS START ]</button>
+        </div>
+    </div>
+
+    
+    <div id="game-overlay">
+       
+        <div class="game-end-box" id="game-end-box">
+            <h2 class="cursive" style="font-size: 3.5rem;">Você Ganhou!</h2>
+            <p style="font-size: 1.1rem; margin-bottom: 15px;">Você estourou os corações, mas a verdadeira surpresa não está mais nessa tela...</p>
+            
+            <p style="color: #f5b041; font-weight: bold; font-size: 1.6rem; margin-top: 20px; line-height: 1.4;">
+                Esqueça o site agora.<br>Tire os olhos da tela e olhe para mim.
+            </p>
+            <p style="font-size: 1.4rem; font-weight: 600; margin-top: 15px;">
+                Eu tenho uma música para cantar ao vivo para você. ❤️
+            </p>
+
+            <button class="btn-close-game" onclick="closeEasterEggGame()">Olhar para o meu homem</button>
+        </div>
+    </div>
+
+    <script>
+        const playlist = ["sayyes.mp3", "nessashoras.mp3", "hostage.mp3"];
         let currentSongIndex = 0;
         const audioPlayer = document.getElementById('audio-player');
         const nowPlayingText = document.getElementById('now-playing-text');
 
-      
         function loadSong(index) {
             if (playlist.length === 0) {
-                nowPlayingText.innerText = "Nenhuma música na playlist.";
-                return;
+                nowPlayingText.innerText = "Nenhuma música na playlist."; return;
             }
             audioPlayer.src = playlist[index];
             nowPlayingText.innerText = "Tocando agora: " + playlist[index];
         }
 
-   
         audioPlayer.addEventListener('ended', () => {
             currentSongIndex++;
-           
-            if (currentSongIndex >= playlist.length) {
-                currentSongIndex = 0; 
-            }
+            if (currentSongIndex >= playlist.length) currentSongIndex = 0; 
             loadSong(currentSongIndex);
             audioPlayer.play();
         });
 
-        
         loadSong(currentSongIndex);
-
 
         function enterGalaxy() {
             const intro = document.getElementById('intro-screen');
             const main = document.getElementById('main-content');
-            
             intro.style.transform = 'scale(5)';
             intro.style.opacity = '0';
-            
             setTimeout(() => {
                 intro.style.display = 'none';
                 main.style.display = 'block';
-                
-            
-                if(playlist.length > 0) {
-                    audioPlayer.play().catch(e => console.log("Clique no play manualmente."));
-                }
+                if(playlist.length > 0) { audioPlayer.play().catch(e => console.log("Clique no play manualmente.")); }
+                generateBlurredPostIts(); 
             }, 1500);
         }
 
-
         function updateCounters() {
             const now = new Date().getTime();
-
-           
-            const datingDate = new Date('2026-07-27T00:55:00').getTime();
-            const meetingDate = new Date('2026-06-23T00:00:00').getTime();
-
+            const datingDate = new Date('2026-07-27T01:45:00').getTime();
+            
             function calculateDiff(startDate, targetElementId, colorClass) {
                 const diff = now - startDate;
                 if (diff < 0) return; 
-
                 const days = Math.floor(diff / (1000 * 60 * 60 * 24));
                 const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
                 const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
                 const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-
                 const html = `
                     <div class="time-unit"><span style="color:${colorClass}">${days}</span><p>Dias</p></div>
                     <div class="time-unit"><span style="color:${colorClass}">${hours}</span><p>Horas</p></div>
                     <div class="time-unit"><span style="color:${colorClass}">${minutes}</span><p>Min</p></div>
                     <div class="time-unit"><span style="color:${colorClass}">${seconds}</span><p>Seg</p></div>
                 `;
-                document.getElementById(targetElementId).innerHTML = html;
+                const el = document.getElementById(targetElementId);
+                if(el) el.innerHTML = html;
             }
-
             calculateDiff(datingDate, 'dating-timer', '#f5b041'); 
-            calculateDiff(meetingDate, 'meeting-timer', '#4d90fe'); 
         }
-
         setInterval(updateCounters, 1000);
         updateCounters(); 
+
+        function goToJourney() {
+            document.getElementById('main-content').style.display = 'none';
+            document.getElementById('journey-screen').style.display = 'block';
+            window.scrollTo(0, 0);
+            createFlowers();
+        }
+
+        function createFlowers() {
+            const container = document.getElementById('flowers-bg');
+            const flowers = ['🌼', '🌻', '🪷', '✨'];
+            for(let i = 0; i < 25; i++) {
+                let div = document.createElement('div');
+                div.innerText = flowers[Math.floor(Math.random() * flowers.length)];
+                div.className = 'flower';
+                div.style.left = Math.random() * 100 + 'vw';
+                div.style.animationDuration = (Math.random() * 15 + 10) + 's';
+                div.style.animationDelay = (Math.random() * 5) + 's';
+                div.style.opacity = Math.random() * 0.5 + 0.2;
+                div.style.fontSize = (Math.random() * 1.5 + 1) + 'rem';
+                container.appendChild(div);
+            }
+        }
+
+        function startTrail() {
+            document.getElementById('start-btn').style.display = 'none';
+            document.getElementById('trail-content').style.display = 'block';
+        }
+
+        function revealMilestone(element) {
+            if(!element.classList.contains('revealed')) {
+                element.classList.add('revealed');
+            }
+        }
+
+        function revealSecret(event, element) {
+            event.stopPropagation(); 
+            if(!element.classList.contains('revealed')) {
+                element.classList.add('revealed');
+                element.innerText = element.innerText; 
+                
+                for(let i=0; i<15; i++) {
+                    let heart = document.createElement('div');
+                    heart.innerText = '❤️';
+                    heart.className = 'mini-heart';
+                    heart.style.left = event.offsetX + 'px';
+                    heart.style.top = event.offsetY + 'px';
+                    let tx = (Math.random() - 0.5) * 200 + 'px';
+                    let ty = (Math.random() - 0.5) * 200 + 'px';
+                    heart.style.setProperty('--tx', tx);
+                    heart.style.setProperty('--ty', ty);
+                    
+                    element.appendChild(heart);
+                    setTimeout(() => heart.remove(), 1000);
+                }
+            }
+        }
+
+        
+        function generateBlurredPostIts() {
+            const container = document.getElementById('blurred-post-its');
+            const colors = ['#a2d2ff', '#ffc8dd']; // Azul e Rosa
+            
+            for(let i = 0; i < 40; i++) {
+                let div = document.createElement('div');
+                div.className = 'mini-post-it';
+                div.style.backgroundColor = colors[i % 2];
+                
+                let rotation = (Math.random() * 10 - 5) + 'deg';
+                div.style.transform = `rotate(${rotation})`;
+                
+                div.innerHTML = "amo<br>seu<br>sorriso"; 
+                container.appendChild(div);
+            }
+        }
+
+        
+        function toggleVideo(container) {
+            event.stopPropagation(); 
+            const video = container.querySelector('video');
+            const bgMusic = document.getElementById('audio-player');
+
+            if (video.paused) {
+                if(bgMusic) bgMusic.pause(); 
+                
+                document.querySelectorAll('.heart-balloon video, .airplane-balloon video, .star-balloon video').forEach(v => {
+                    if(v !== video && !v.paused) {
+                        v.pause();
+                        v.parentElement.classList.remove('playing');
+                    }
+                });
+                
+                video.play();
+                container.classList.add('playing');
+            } else {
+                video.pause();
+                container.classList.remove('playing');
+            }
+        }
+
+       
+        let gameIntervalId;
+        let gameTimeoutId;
+
+        function startEasterEggGame() {
+            const overlay = document.getElementById('game-overlay');
+            const endBox = document.getElementById('game-end-box');
+            
+            overlay.style.display = 'block';
+            endBox.style.display = 'none';
+            
+            const audioPlayer = document.getElementById('audio-player');
+            if (audioPlayer) audioPlayer.pause();
+            
+            document.querySelectorAll('.falling-heart').forEach(el => el.remove());
+
+            gameIntervalId = setInterval(() => {
+                const heart = document.createElement('div');
+                heart.innerText = '❤️';
+                heart.className = 'falling-heart';
+                heart.style.left = (Math.random() * 90) + 'vw';
+                heart.style.fontSize = (Math.random() * 2 + 1.5) + 'rem';
+                heart.style.animationDuration = (Math.random() * 2 + 3) + 's'; 
+                
+                const popEvent = () => {
+                    heart.innerText = '✨';
+                    heart.style.pointerEvents = 'none'; 
+                    setTimeout(() => heart.remove(), 200);
+                };
+                heart.addEventListener('mouseenter', popEvent);
+                heart.addEventListener('touchstart', popEvent);
+
+                overlay.appendChild(heart);
+
+                setTimeout(() => { if (heart.parentElement) heart.remove(); }, 5000);
+
+            }, 400); 
+
+            gameTimeoutId = setTimeout(() => {
+                clearInterval(gameIntervalId);
+                document.querySelectorAll('.falling-heart').forEach(el => el.remove());
+                endBox.style.display = 'block';
+            }, 10000);
+        }
+
+        function closeEasterEggGame() {
+            document.getElementById('game-overlay').style.display = 'none';
+            clearInterval(gameIntervalId);
+            clearTimeout(gameTimeoutId);
+        }
+
     </script>
 </body>
 </html>
